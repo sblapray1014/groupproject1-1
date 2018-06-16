@@ -22,6 +22,15 @@ $("#results-card").hide();
         var results = response.results;
         console.log(results);
         for (var i = 0; i < results.length; i++) {
+        var videoID = results[i].id;
+        var queryURL2 = "https://api.themoviedb.org/3/movie/"
+        + videoID + "/videos?api_key=8abf4717f6a2f21970e78497f3451f44&language=en-US";
+        $.ajax({
+        url: queryURL2,
+        method: "GET"
+        }).then(function (response2) {
+        console.log(response2);
+        })
         var movie = results[i].title;
         $("#search-card").hide();
         $("#results-card").show();
