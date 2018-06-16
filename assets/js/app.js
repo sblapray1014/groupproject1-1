@@ -35,22 +35,14 @@ $(document).ready(function () {
                     var header = $("<h3>").text(game);
                     var gamePoster = $("<img>");
                     gamePoster.addClass("game-poster");
-                    gamePoster.attr("src", "https:" + results[i].game.cover.url);
+                    gamePoster.attr("src", "https://images.igdb.com/igdb/image/upload/t_cover_big/" + results[i].game.cover.cloudinary_id + ".jpg");
                     var thirdDiv = $("<div>");
                     thirdDiv.addClass("paragraph-height");
                     var overview = $("<p>").text(results[i].game.summary);
-                    var secondDiv = $("<div>");
-                    secondDiv.addClass("rating-section");
-                    var ratingImage = $("<img>");
-                    ratingImage.addClass("rating-image");
-                    ratingImage.attr("src", "https://www.shareicon.net/download/2015/12/14/687124_empty.svg");
                     overview.addClass("overview");
                     var rDate = $("<p>").text("Release Date: " + results[i].human);
-                    var vote = $("<p> User Ratings:").text(results[i].game.player_perspectives);
-                    vote.addClass("user-rating");
-                    secondDiv.append(vote, ratingImage);
                     thirdDiv.append(overview);
-                    newDiv.append(header, gamePoster, rDate, thirdDiv, secondDiv);
+                    newDiv.append(header, gamePoster, rDate, thirdDiv);
                     console.log(newDiv);
                     $("#results-card").append(newDiv);
                 }
